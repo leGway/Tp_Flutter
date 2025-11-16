@@ -1,0 +1,42 @@
+// Projet 3 : Jeu de Devinette
+import 'dart:math';
+
+void main() {
+  Random random = Random();
+  int nombreSecret = random.nextInt(100) + 1; // Entre 1 et 100
+  int tentatives = 0;
+  bool trouve = false;
+  print('Demarage');
+  print('Le nombre secret est : $nombreSecret');
+
+  // À COMPLÉTER
+  // 1. Demander à l'utilisateur de deviner (simulez avec une variable)
+  int essaiUtilisateur = 0;
+  List<int> sequenceEssais = [50, 75, 60, 68, nombreSecret];
+  int indexEssai = 0;
+  while (!trouve) {
+    // Simuler la lecture de l'entrée utilisateur
+    if (indexEssai < sequenceEssais.length) {
+      essaiUtilisateur = sequenceEssais[indexEssai];
+      indexEssai++;
+    } else {
+      break; // Sortir si la séquence est terminée
+    }
+    // 2. Indiquer si c'est trop grand ou trop petit
+    tentatives++;
+
+    print('\nTentative n°$tentatives : ${essaiUtilisateur}');
+
+    if (essaiUtilisateur == nombreSecret) {
+      trouve = true;
+      print('\FÉLICITATIONS !');
+      print(
+        'Vous avez trouvé le nombre secret ($nombreSecret) en $tentatives tentatives.',
+      );
+    } else if (essaiUtilisateur < nombreSecret) {
+      print('Trop petit.');
+    } else {
+      print('Trop grand.');
+    }
+  }
+}

@@ -1,0 +1,333 @@
+void main() {
+  // Partie 1 : Variables et Types de Données
+  // Variables typées
+  int age = 25;
+  double taille = 1.75;
+  String nom = 'Kofi';
+  bool estEtudiant = true;
+
+  // Variables avec inférence de type
+  var ville = 'Lomé';
+  var temperature = 30.5;
+
+  // Affichage
+  print('Nom: $nom');
+  print('Age: $age ans');
+  print('Taille: $taille m');
+  print('Étudiant: $estEtudiant');
+  print('Ville: $ville');
+  print('Température: $temperature°C');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // 1.2 : Interpolation de chaînes
+
+  // À COMPLÉTER
+  String prenom = 'win';
+  int ageWin = 20;
+  String profession = 'data';
+
+  // Utilisez l'interpolation $variable ou ${expression}
+  print('Je m\'appelle $prenom, j\'ai $ageWin ans et je suis $profession.');
+  print('L\'année prochaine, j\'aurai ${ageWin + 1} ans.');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 2.1 : Calculatrice simple
+
+  int a = 15;
+  int b = 4;
+
+  print('Addition: ${a + b}');
+  print('Soustraction: ${a - b}');
+  print('Multiplication: ${a * b}');
+  print('Division: ${a / b}');
+  print('Division entière: ${a ~/ b}');
+  print('Modulo (reste): ${a % b}');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+  // Exercice 2.2 : Opérateurs logiques
+
+  int age2 = 20;
+  bool aPermis = true;
+
+  // Peut-il conduire ? (age >= 18 ET a un permis)
+  bool peutConduire = age2 >= 18 && aPermis;
+  print('Peut conduire: $peutConduire');
+
+  // À COMPLÉTER : Créez d'autres conditions
+  // - Est majeur ? (age >= 18)
+  bool estMaj = age2 >= 18;
+  print("Age = $age2 : est majeur $estMaj");
+  // - Est mineur OU n'a pas le permis ?
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 3.1 : Vérification d'âge
+
+  int age3 = 16;
+
+  if (age3 >= 60) {
+    print('Vous êtes senior.');
+  } else if (age3 >= 18) {
+    print('Vous êtes majeur.');
+  } else {
+    print('Vous êtes mineur.');
+  }
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  //  Exercice 3.2 : Notes et mentions
+
+  double note = 8.5;
+
+  if (note >= 16) {
+    print('Mention: Très Bien');
+  } else if (note >= 14) {
+    print('Mention: Bien');
+  } else if (note >= 12) {
+    print('Mention: Assez Bien');
+  } else if (note >= 10) {
+    print('Mention: Passable');
+  } else {
+    print('Mention: Insuffisant');
+  }
+  print(
+    '---------------------------------------------------------------------------',
+  );
+  //  Exercice 3.3 : Jour de la semaine
+
+  int jour = 10;
+
+  switch (jour) {
+    case 1:
+      print('Lundi');
+      break;
+    case 2:
+      print('Mardi');
+      break;
+    case 3:
+      print('Mercredi');
+      break;
+    case 4:
+      print('Jeudi');
+    case 5:
+      print('Vendredi');
+    case 6:
+      print('Samedi');
+    case 7:
+      print('Dimanche');
+    default:
+      print('Jour invalide');
+  }
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 4.1 : Afficher les nombres de 1 à 10
+
+  for (int i = 1; i <= 10; i++) {
+    print('Nombre: $i');
+  }
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 4.2 : Table de multiplication
+
+  int nombre = 8;
+
+  print('Table de multiplication de $nombre:');
+  for (int i = 1; i <= 9; i++) {
+    print('$nombre x $i = ${nombre * i}');
+  }
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  //  Exercice 4.3 : Compte à rebours
+
+  int compte = 10;
+
+  while (compte > 0) {
+    print(compte);
+    compte--;
+  }
+  print('Décollage ! ');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 4.4 : Somme des nombres
+
+  int somme = 0;
+  int i = 1;
+
+  // Calculer la somme de 1 à 100
+  while (i <= 100) {
+    somme += i;
+    i++;
+  }
+
+  print('La somme de 1 à 100 est: $somme');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 5.1 : Manipulation de listes
+
+  // Créer une liste
+  List<String> fruits = ['Mangue', 'Banane', 'Orange'];
+
+  // Afficher la liste
+  print('Fruits: $fruits');
+
+  // Ajouter un élément
+  fruits.add('Ananas');
+  print('Après ajout: $fruits');
+
+  // Accéder à un élément
+  print('Premier fruit: ${fruits[0]}');
+  print('Dernier fruit: ${fruits[fruits.length - 1]}');
+
+  // Nombre d'éléments
+  print('Nombre de fruits: ${fruits.length}');
+
+  // Supprimer un élément
+  fruits.remove('Banane');
+  print('Après suppression: $fruits');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 5.2 : Parcourir une liste
+
+  List<int> notes = [15, 12, 18, 14, 16];
+
+  // Méthode 1 : for classique
+  print('Méthode 1:');
+  for (int i = 0; i < notes.length; i++) {
+    print('Note ${i + 1}: ${notes[i]}');
+  }
+
+  // Méthode 2 : for-in
+  print('\nMéthode 2:');
+  for (var note in notes) {
+    print('Note: $note');
+  }
+
+  // Méthode 3 : forEach
+  print('\nMéthode 3:');
+  notes.forEach((note) {
+    print('Note: $note');
+  });
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+  // Exercice 5.3 : Calcul de moyenne
+
+  List<double> notes5 = [15.5, 12.0, 18.0, 14.5, 16.0];
+
+  double somme5 = 0;
+  for (var note5 in notes) {
+    somme5 += note5;
+  }
+
+  double moyenne = somme5 / notes5.length;
+  print('Moyenne: ${moyenne.toStringAsFixed(2)}');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 6.1 : Fonction simple
+
+  void direBonjour() {
+    print('Bonjour win !');
+  }
+
+  direBonjour();
+  direBonjour();
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 6.2 : Fonction avec paramètres
+
+  void saluer(String nom) {
+    print('Bonjour, $nom !');
+  }
+
+  saluer('Kofi');
+  saluer('Ama');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+
+  // Exercice 6.3 : Fonction avec valeur de retour
+
+  int additionner(int a, int b) {
+    return a + b;
+  }
+
+  double calculerMoyenne(double note1, double note2, double note3) {
+    return (note1 + note2 + note3) / 3;
+  }
+
+  int resultat = additionner(5, 7);
+  print('5 + 7 = $resultat');
+
+  double moyennea = calculerMoyenne(15, 12, 18);
+  print('Moyenne: ${moyennea.toStringAsFixed(2)}');
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+  // Exercice 6.4 : Paramètres nommés et optionnels
+
+  void presenterPersonne({
+    required String nom,
+    required int age,
+    String? ville,
+  }) {
+    print('Nom: $nom, Age: $age ans');
+    if (ville != null) {
+      print('Ville: $ville');
+    }
+  }
+
+  // Paramètres optionnels avec valeur par défaut
+  void afficherMessage(String message, [bool majuscule = false]) {
+    if (majuscule) {
+      print(message.toUpperCase());
+    } else {
+      print(message);
+    }
+  }
+
+  presenterPersonne(nom: 'Kofi', age: 25);
+  presenterPersonne(nom: 'Ama', age: 22, ville: 'Lomé');
+
+  afficherMessage('Bonjour');
+  afficherMessage('Bonjour', true);
+
+  print(
+    '---------------------------------------------------------------------------',
+  );
+}

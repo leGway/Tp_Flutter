@@ -1,0 +1,90 @@
+// Projet 2 : Gestionnaire de Contacts
+class Contact {
+  String nom;
+  String telephone;
+  String email;
+
+  Contact(this.nom, this.telephone, this.email);
+
+  String toString() {
+    return 'Nom: $nom, Téléphone: $telephone, Email: $email';
+  }
+}
+
+class GestionnaireContacts {
+  List<Contact> contacts = [];
+
+  //   method addContact
+  void addContact(Contact newContact) {
+    contacts.add(newContact);
+    print('${newContact.nom} a été ajouté');
+  }
+
+  //   method viewContacts
+  void viewContacts() {
+    for (var contact in contacts) {
+      print(contact);
+    }
+  }
+
+  //   Rechercher un contact par nom
+  Contact? searchByName(String nom) {
+    try {
+      Contact contactTrouve = contacts.firstWhere(
+        (c) => c.nom.toLowerCase() == nom.toLowerCase(),
+      );
+      return contactTrouve;
+    } catch (e) {
+      // Si la recherche échoue, on retourne null
+      return null;
+    }
+  }
+
+  // 4. Supprimer un contact
+  bool supprimerContact(String nom) {
+    int nombreAvant = contacts.length;
+    contacts.removeWhere((c) => c.nom.toLowerCase() == nom.toLowerCase());
+    int nombreApres = contacts.length;
+    bool suppressionReussie = nombreAvant != nombreApres;
+    if (suppressionReussie) {
+      print('\n Contact nommé "$nom" a été supprimé.');
+    } else {
+      print('\n Erreur : Le contact nommé "$nom" est introuvable.');
+    }
+
+    return suppressionReussie;
+  }
+}
+
+void main() {
+  GestionnaireContacts gestionnaire = GestionnaireContacts();
+  // 1. Ajouter plusieurs contacts
+  print('1. AJOUT DES CONTACTS');
+  gestionnaire.addContact(Contact('Kofi', '024-1234', 'kofi@mail.com'));
+  gestionnaire.addContact(Contact('Ama', '020-9876', 'ama@mail.com'));
+  gestionnaire.addContact(Contact('Yaw', '055-1122', 'yaw@mail.com'));
+  // 2. Afficher tous les contacts
+  print('\n2. Afficher tous les contacts');
+  gestionnaire.viewContacts();
+  // 3. Rechercher un contact par nom
+  print('\n3. RECHERCHE PAR NOM');
+
+  String nomRecherche = 'Ama';
+  Contact? ama = gestionnaire.searchByName(nomRecherche);
+
+  if (ama != null) {
+    print('Contact trouvé: ${ama.toString()}');
+  } else {
+    print('Le contact "$nomRecherche" n\'a pas été trouvé.');
+  }
+
+  // 4. Supprimer un contact
+
+  print('\n4. SUPPRESSION DE CONTACTS');
+
+  // Suppression réussie
+  gestionnaire.supprimerContact('Yaw');
+
+  // Suppression échouée
+  gestionnaire.supprimerContact('Yaw');
+}
